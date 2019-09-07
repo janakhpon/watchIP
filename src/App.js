@@ -8,9 +8,7 @@ import './App.css';
 function App() {
   return (
     <div>
-      <Container textAlign='left'>Left Aligned</Container>
-      <Container textAlign='center'>Center Aligned</Container>
-      <Container textAlign='right'>Right Aligned</Container>
+      <div style={{height:30}}></div>
       <Container textAlign='justified'>
         <InputComponent/>
         <Divider />
