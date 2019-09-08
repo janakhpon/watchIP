@@ -42,6 +42,14 @@ export default class InputComponent extends Component {
 
     componentDidMount() {
 
+        axios.get('https://api.ipify.org?format=json').then(res => {
+            console.log(res);
+            this.setState({
+                ip: res.data.ip
+            });
+        }).catch(err => {
+            console.log(err);
+        });
     }
 
 
@@ -94,7 +102,6 @@ export default class InputComponent extends Component {
 
     handleChange = (e, { name, value }) => this.setState({ [name]: value })
 
-    handleSubmit = () => this.setState({ email: '', ip: '' })
 
     render() {
         const { ip, open, dimmer } = this.state
@@ -104,7 +111,7 @@ export default class InputComponent extends Component {
                 <Media query={{ maxWidth: 480 }}>
                     {matches =>
                         matches ? (
-                            <Form onSubmit={this.handleSubmit}>
+                            <Form >
                                 <Form.Group>
                                     <Form>
                                         <Input action={{ icon: 'search' }} name='ip'
@@ -114,7 +121,7 @@ export default class InputComponent extends Component {
                                 </Form.Group>
                             </Form>
                         ) : (
-                                <Form onSubmit={this.handleSubmit}>
+                                <Form>
                                     <Form.Group>
                                         <Form>
                                             <Input
@@ -134,20 +141,39 @@ export default class InputComponent extends Component {
 
 
                 <Modal dimmer={dimmer} open={open} onClose={this.close}>
-                    <Modal.Header>Select a Photo</Modal.Header>
+                    <Modal.Header>{this.state.country_name}</Modal.Header>
                     <Modal.Content image>
                         <Image
                             wrapped
-                            size='medium'
-                            src='https://react.semantic-ui.com/images/avatar/large/rachel.png'
+                            size='small'
+                            src={this.state.country_flag}
                         />
                         <Modal.Description>
-                            <Header>Default Profile Image</Header>
+                            <Header>{this.state.ip}</Header>
                             <p>
-                                We've found the following gravatar image associated with your
-                                e-mail address.
-              </p>
-                            <p>Is it okay to use this photo?</p>
+                                {this.state.calling_code}
+                            </p>
+                            <p>{this.state.city}</p>
+                            <p>{this.state.continent_name}</p>
+                            <p>{this.state.country_capital}</p>
+                            <p>{this.state.country_code}</p>
+                            <p>{this.state.country_name}</p>
+                            <p>{this.state.currency.code}</p>
+                            <p>{this.state.currency.name}</p>
+                            <p>{this.state.currency.symbol}</p>
+                            <p>{this.state.district}</p>
+                            <p>{this.state.geoname_id}</p>
+                            <p>{this.state.isp}</p>
+                            <p>{this.state.language}</p>
+                            <p>{this.state.lattitude}</p>
+                            <p>{this.state.longitude}</p>
+                            <p>{this.state.organization}</p>
+                            <p>{this.state.state_prov}</p>
+                            <p>{this.state.time_zone.current_time}</p>
+                            <p>{this.state.time_zone.current_time_unix}</p>
+                            <p>{this.state.time_zone.name}</p>
+                            <p>{this.state.zipcode}</p>
+
                         </Modal.Description>
                     </Modal.Content>
                     <Modal.Actions>
