@@ -113,26 +113,29 @@ export default class InputComponent extends Component {
                         matches ? (
                             <Form >
                                 <Form.Group>
-                                    <Form>
-                                        <Input action={{ icon: 'search' }} name='ip'
-                                            value={ip}
-                                            onChange={this.handleChange} placeholder='Search IPV4 address ..' style={{ width: '80vw' }} />
-                                    </Form>
+
+                                    <Input action={{
+                                        icon: "search",
+                                        onClick: () => this.handleClick()
+                                    }} name='ip'
+                                        value={ip}
+                                        onChange={this.handleChange} placeholder='Search IPV4 address ..' style={{ width: '80vw' }} />
+
                                 </Form.Group>
                             </Form>
                         ) : (
                                 <Form>
                                     <Form.Group>
-                                        <Form>
-                                            <Input
-                                                action={{
-                                                    icon: "search",
-                                                    onClick: () => this.handleClick()
-                                                }}
-                                                name='ip'
-                                                value={ip}
-                                                onChange={this.handleChange} placeholder='Search IPV4 address ..' style={{ width: '60vw' }} />
-                                        </Form>
+
+                                        <Input
+                                            action={{
+                                                icon: "search",
+                                                onClick: () => this.handleClick()
+                                            }}
+                                            name='ip'
+                                            value={ip}
+                                            onChange={this.handleChange} placeholder='Search IPV4 address ..' style={{ width: '60vw' }} />
+
                                     </Form.Group>
                                 </Form>
                             )
