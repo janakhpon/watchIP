@@ -4,6 +4,7 @@ import axios from 'axios';
 import Media from 'react-media';
 
 
+
 export default class InputComponent extends Component {
 
     constructor(props) {

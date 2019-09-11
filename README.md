@@ -2,7 +2,7 @@
   WatchIP is built to use as a `React` Component for future Project . `WatchIP` use API and Geolocation to get IP & and Geolocation and extract information from it and display on modal. Go try by yourself. [DEPLOYEDONNETLIFY](https://competent-minsky-c4f6af.netlify.com/).
 
 
-## STATUS(GDEV006:ON PROGRESS)
+## STATUS(GDEV007:ON PROGRESS)
 
 # Usage
 
